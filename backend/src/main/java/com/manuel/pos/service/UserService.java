@@ -4,6 +4,7 @@ import com.manuel.pos.dto.request.UserRequestDTO;
 import com.manuel.pos.dto.response.UserResponseDTO;
 import com.manuel.pos.entity.Role;
 import com.manuel.pos.entity.User;
+import com.manuel.pos.exception.ResourceNotFoundException;
 import com.manuel.pos.mapper.UserMapper;
 import com.manuel.pos.repository.RoleRepository;
 import com.manuel.pos.repository.UserRepository;
@@ -31,7 +32,7 @@ public class UserService {
 
     public UserResponseDTO saveUser(UserRequestDTO userRequestDTO){
         Role role = roleRepository.findById(userRequestDTO.getRoleId())
-                .orElseThrow(() -> new RuntimeException("Role not found"));
+                .orElseThrow(() -> new ResourceNotFoundException("Role not found"));
         User user = new User();
         user.setName(userRequestDTO.getName());
         user.setEmail(userRequestDTO.getEmail());
