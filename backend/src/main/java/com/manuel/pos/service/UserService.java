@@ -1,6 +1,7 @@
 package com.manuel.pos.service;
 
 import com.manuel.pos.dto.request.UserRequestDTO;
+import com.manuel.pos.dto.response.UserResponseDTO;
 import com.manuel.pos.entity.Role;
 import com.manuel.pos.entity.User;
 import com.manuel.pos.repository.RoleRepository;
@@ -23,7 +24,7 @@ public class UserService {
         return userRepository.findAll();
     }
 
-    public User saveUser(UserRequestDTO userRequestDTO){
+    public UserResponseDTO saveUser(UserRequestDTO userRequestDTO){
         Role role = roleRepository.findById(userRequestDTO.getRoleId())
                 .orElseThrow(() -> new RuntimeException("Role not found"));
         User user = new User();
@@ -31,7 +32,16 @@ public class UserService {
         user.setEmail(userRequestDTO.getEmail());
         user.setPassword(userRequestDTO.getPassword());
         user.setRole(role);
+        User saved = userRepository.save(user);
 
-        return userRepository.save(user);
+        return toResponse(user);
+    }
+
+    public UserResponseDTO toResponse(User user){
+        UserResponseDTO userResponseDTO = new UserResponseDTO();
+        userResponseDTO.setId(user.getId());
+        userResponseDTO.setName(user.getName());
+        userResponseDTO.setEmail(user.getEmail());
+        return userResponseDTO;
     }
 }

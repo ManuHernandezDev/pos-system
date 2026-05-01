@@ -1,6 +1,7 @@
 package com.manuel.pos.controller;
 
 import com.manuel.pos.dto.request.UserRequestDTO;
+import com.manuel.pos.dto.response.UserResponseDTO;
 import com.manuel.pos.entity.User;
 import com.manuel.pos.service.UserService;
 import jakarta.validation.Valid;
@@ -21,7 +22,7 @@ public class UserController {
     }
 
     @PostMapping
-    public User userCreate(@Valid @RequestBody UserRequestDTO userRequestDTO){
+    public UserResponseDTO userCreate(@Valid @RequestBody UserRequestDTO userRequestDTO){
         return userService.saveUser(userRequestDTO);
     }
 }
