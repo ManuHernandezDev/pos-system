@@ -1,7 +1,9 @@
 package com.manuel.pos.controller;
 
+import com.manuel.pos.dto.request.UserRequestDTO;
 import com.manuel.pos.entity.User;
 import com.manuel.pos.service.UserService;
+import jakarta.validation.Valid;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -19,7 +21,7 @@ public class UserController {
     }
 
     @PostMapping
-    public User userCreate(@RequestBody User user){
-        return userService.saveUser(user);
+    public User userCreate(@Valid @RequestBody UserRequestDTO userRequestDTO){
+        return userService.saveUser(userRequestDTO);
     }
 }
