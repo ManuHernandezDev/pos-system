@@ -1,4 +1,7 @@
 package com.manuel.pos.repository;
 
-public interface UserRepository {
+import com.manuel.pos.entity.User;
+import org.springframework.data.jpa.repository.JpaRepository;
+
+public interface UserRepository extends JpaRepository<User, Long> {
 }
