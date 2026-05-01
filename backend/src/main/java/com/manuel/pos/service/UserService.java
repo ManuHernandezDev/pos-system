@@ -4,6 +4,7 @@ import com.manuel.pos.dto.request.UserRequestDTO;
 import com.manuel.pos.dto.response.UserResponseDTO;
 import com.manuel.pos.entity.Role;
 import com.manuel.pos.entity.User;
+import com.manuel.pos.mapper.UserMapper;
 import com.manuel.pos.repository.RoleRepository;
 import com.manuel.pos.repository.UserRepository;
 import org.springframework.stereotype.Service;
@@ -34,14 +35,6 @@ public class UserService {
         user.setRole(role);
         User saved = userRepository.save(user);
 
-        return toResponse(user);
-    }
-
-    public UserResponseDTO toResponse(User user){
-        UserResponseDTO userResponseDTO = new UserResponseDTO();
-        userResponseDTO.setId(user.getId());
-        userResponseDTO.setName(user.getName());
-        userResponseDTO.setEmail(user.getEmail());
-        return userResponseDTO;
+        return UserMapper.toResponse(user);
     }
 }
