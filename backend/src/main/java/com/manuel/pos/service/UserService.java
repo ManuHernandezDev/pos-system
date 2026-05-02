@@ -32,6 +32,12 @@ public class UserService {
                 .map(UserMapper::toResponse)
                 .toList();
     }
+    public UserResponseDTO getUserById(Long id){
+        User user = userRepository.findById(id)
+                .orElseThrow(() -> new ResourceNotFoundException("User not found"));
+        return UserMapper.toResponse(user);
+
+    }
 
     public UserResponseDTO saveUser(UserRequestDTO userRequestDTO){
         Role role = roleRepository.findById(userRequestDTO.getRoleId())
