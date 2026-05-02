@@ -71,10 +71,11 @@ Obtiene un usuario por ID
 }
 ```
 ### Error
+```json
 {
-"message": "User not found"
+  "message": "User not found"
 }
-
+```
 ### PUT /users/{id}
 Actualiza un usuario existente
 
@@ -108,13 +109,34 @@ Actualiza un usuario existente
 Elimina un usuario
 
 #### Response:
+```json
 204 No Content
-
+```
 #### Error (404):
+```json
 {
-"message": "User not found"
+  "message": "User not found"
 }
+```
+## Testing
 
+Se implementaron pruebas unitarias y de integración para validar el comportamiento del sistema.
+
+### Unit Tests
+- UserServiceTest
+- Validación de lógica de negocio
+- Uso de Mockito para simular dependencias
+
+### Controller Tests
+- UserControllerTest
+- Uso de MockMvc para simular peticiones HTTP
+- Validación de respuestas (status 200, 404)
+
+### ▶️ Ejecutar tests
+
+```bash
+./mvnw test
+```
 ## Seguridad
 - Contraseñas encriptadas con BCrypt
 - Validación de datos con @Valid
