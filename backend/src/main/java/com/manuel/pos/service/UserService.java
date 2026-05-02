@@ -8,7 +8,6 @@ import com.manuel.pos.exception.ResourceNotFoundException;
 import com.manuel.pos.mapper.UserMapper;
 import com.manuel.pos.repository.RoleRepository;
 import com.manuel.pos.repository.UserRepository;
-import com.manuel.pos.config.SecurityConfig;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
@@ -58,7 +57,9 @@ public class UserService {
 
         user.setName(userRequestDTO.getName());
         user.setEmail(userRequestDTO.getEmail());
-        user.setPassword(userRequestDTO.getPassword());
+        if(userRequestDTO.getPassword() != null && !userRequestDTO.getPassword().isBlank()){
+            user.setPassword(passwordEncoder.encode(userRequestDTO.getPassword()));
+        }
 
         Role role = roleRepository.findById(userRequestDTO.getRoleId())
                 .orElseThrow(() -> new ResourceNotFoundException("Role not Found"));
@@ -66,6 +67,5 @@ public class UserService {
         user.setRole(role);
         User update = userRepository.save(user);
         return UserMapper.toResponse(update);
-
     }
 }
