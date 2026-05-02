@@ -96,7 +96,6 @@ Actualiza un usuario existente
 }
 ```
 
-
 ### Response 
 ```json
 {
@@ -105,6 +104,16 @@ Actualiza un usuario existente
   "email": "manu@test.com"
 }
 ```
+### DELETE /users/{id}
+Elimina un usuario
+
+#### Response:
+204 No Content
+
+#### Error (404):
+{
+"message": "User not found"
+}
 
 ## Seguridad
 - Contraseñas encriptadas con BCrypt
