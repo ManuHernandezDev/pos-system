@@ -4,6 +4,7 @@ import com.manuel.pos.dto.request.UserRequestDTO;
 import com.manuel.pos.dto.response.UserResponseDTO;
 import com.manuel.pos.service.UserService;
 import jakarta.validation.Valid;
+import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -36,5 +37,11 @@ public class UserController {
     @PutMapping("/{id}")
     public UserResponseDTO updateUser(@PathVariable Long id, @Valid @RequestBody UserRequestDTO userRequestDTO){
         return userService.updateUser(id, userRequestDTO);
+    }
+
+    @DeleteMapping("/{id}")
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    public void deleteUser(@PathVariable Long id){
+        userService.deleteUser(id);
     }
 }
