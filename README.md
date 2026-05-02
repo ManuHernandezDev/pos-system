@@ -53,10 +53,10 @@ crea un nuevo usuario
 Body:
 ```json
 {
-    "name": "Manu",
-    "email": "manu@test.com",
-    "password": "1234",
-    "roleId": 1
+  "name": "Manu",
+  "email": "manu@test.com",
+  "password": "1234",
+  "roleId": 1
 }
 ```
 ### GET /users/{id}
@@ -74,6 +74,37 @@ Obtiene un usuario por ID
 {
 "message": "User not found"
 }
+
+### PUT /users/{id}
+Actualiza un usuario existente
+
+#### Body:
+```json
+{
+  "name": "Manu Updated",
+  "email": "manu@test.com",
+  "password": "12345678",
+  "roleId": 1
+}
+```
+#### Error (404)
+```json
+{
+  "id": 1,
+  "name": "Manu Updated",
+  "email": "manu@test.com"
+}
+```
+
+
+### Response 
+```json
+{
+  "id": 1,
+  "name": "Manu Updated",
+  "email": "manu@test.com"
+}
+```
 
 ## Seguridad
 - Contraseñas encriptadas con BCrypt
