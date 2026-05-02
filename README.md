@@ -1,40 +1,78 @@
 # POS System
 
 ## 📌 Descripción
-Sistema de punto de venta web para gestión de inventario y ventas en tiempo real.
+Sistema de punto de venta (POS) web que permite gestionar usuarios, inventario y ventas en tiempo real, con control de acceso basado en roles.
+
+---
 
 ## 🧠 Arquitectura
-- Backend: Spring Boot
-- Frontend: Angular (en progreso)
+- Backend: Spring Boot (API REST)
+- Frontend: Angular (en desarrollo)
 - Base de datos: PostgreSQL
+
+---
 
 ## ⚙️ Tecnologías
 - Java 17
 - Spring Boot
+- Spring Data JPA
 - PostgreSQL
-- Docker (futuro)
+- Lombok
+- Docker (próximamente)
 
-## 📂 Estructura
+---
+
+## 📂 Estructura del proyecto
 /backend → API REST  
-/frontend → interfaz de usuario
+/frontend → Cliente web (Angular)
+
+---
 
 ## 🚀 Cómo ejecutar
-1. Clonar repositorio
-2. Configurar base de datos PostgreSQL
-3. Ejecutar proyecto Spring Boot
-4. Acceder en: http://localhost:8080
 
-## 📡 Endpoints
-### GET /users
-Obtiene todos los usuarios
+1. Clonar el repositorio
+2. Crear base de datos en PostgreSQL
+3. Configurar `application.properties`
+4. Ejecutar la aplicación
 
-### POST /users
-Crea un nuevo usuario
+```bash
+./mvnw spring-boot:run
+```
+
+## API disponible en:
+```bash
+http://localhost:8080
+```
+## Endpoints
+### Get /users
+Obtiene la lista de usuarios
+
+### Post /users
+crea un nuevo usuario
 
 Body:
-```json
+json
 {
-  "name": "Manu",
-  "email": "manu@test.com",
-  "password": "1234"
+    "name": "Manu",
+    "email": "manu@test.com",
+    "password": "1234",
+    "roleId": 1
 }
+
+## Seguridad
+- Contraseñas encriptadas con BCrypt
+- Validación de datos con @Valid
+- Manejo global de excepciones
+  
+## Validaciones
+- Email con formato válido 
+- Password mínimo 8 caracteres 
+- Campos obligatorios
+
+## Estado del proyecto
+### En desarrollo
+- Gestión de usuarios implementada
+
+## Autor
+
+- Manuel Hernández Soriano
