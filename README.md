@@ -51,12 +51,28 @@ Obtiene la lista de usuarios
 crea un nuevo usuario
 
 Body:
-json
+```json
 {
     "name": "Manu",
     "email": "manu@test.com",
     "password": "1234",
     "roleId": 1
+}
+```
+### GET /users/{id}
+Obtiene un usuario por ID
+
+#### Response:
+```json
+{
+  "id": 1,
+  "name": "Manu",
+  "email": "..."
+}
+```
+### Error
+{
+"message": "User not found"
 }
 
 ## Seguridad
