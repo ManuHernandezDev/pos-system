@@ -1,29 +1,78 @@
-# Getting Started
+# POS System
 
-### Reference Documentation
+## 📌 Descripción
+Sistema de punto de venta (POS) web que permite gestionar usuarios, inventario y ventas en tiempo real, con control de acceso basado en roles.
 
-For further reference, please consider the following sections:
+---
 
-* [Official Apache Maven documentation](https://maven.apache.org/guides/index.html)
-* [Spring Boot Maven Plugin Reference Guide](https://docs.spring.io/spring-boot/4.0.6/maven-plugin)
-* [Create an OCI image](https://docs.spring.io/spring-boot/4.0.6/maven-plugin/build-image.html)
-* [Spring Data JPA](https://docs.spring.io/spring-boot/4.0.6/reference/data/sql.html#data.sql.jpa-and-spring-data)
-* [Spring Web](https://docs.spring.io/spring-boot/4.0.6/reference/web/servlet.html)
+## 🧠 Arquitectura
+- Backend: Spring Boot (API REST)
+- Frontend: Angular (en desarrollo)
+- Base de datos: PostgreSQL
 
-### Guides
+---
 
-The following guides illustrate how to use some features concretely:
+## ⚙️ Tecnologías
+- Java 17
+- Spring Boot
+- Spring Data JPA
+- PostgreSQL
+- Lombok
+- Docker (próximamente)
 
-* [Accessing Data with JPA](https://spring.io/guides/gs/accessing-data-jpa/)
-* [Building a RESTful Web Service](https://spring.io/guides/gs/rest-service/)
-* [Serving Web Content with Spring MVC](https://spring.io/guides/gs/serving-web-content/)
-* [Building REST services with Spring](https://spring.io/guides/tutorials/rest/)
+---
 
-### Maven Parent overrides
+## 📂 Estructura del proyecto
+/backend → API REST  
+/frontend → Cliente web (Angular)
 
-Due to Maven's design, elements are inherited from the parent POM to the project POM.
-While most of the inheritance is fine, it also inherits unwanted elements like `<license>` and `<developers>` from the
-parent.
-To prevent this, the project POM contains empty overrides for these elements.
-If you manually switch to a different parent and actually want the inheritance, you need to remove those overrides.
+---
 
+## 🚀 Cómo ejecutar
+
+1. Clonar el repositorio
+2. Crear base de datos en PostgreSQL
+3. Configurar `application.properties`
+4. Ejecutar la aplicación
+
+```bash
+./mvnw spring-boot:run
+```
+
+## API disponible en:
+```bash
+http://localhost:8080
+```
+## Endpoints
+### Get /users
+Obtiene la lista de usuarios
+
+### Post /users
+crea un nuevo usuario
+
+Body:
+json
+{
+    "name": "Manu",
+    "email": "manu@test.com",
+    "password": "1234",
+    "roleId": 1
+}
+
+## Seguridad
+- Contraseñas encriptadas con BCrypt
+- Validación de datos con @Valid
+- Manejo global de excepciones
+  
+## Validaciones
+- Email con formato válido 
+- Password mínimo 8 caracteres 
+- Campos obligatorios
+
+## Estado del proyecto
+### En desarrollo
+- Gestión de usuarios implementada
+
+## Autor
+
+- Manuel Hernández Soriano
