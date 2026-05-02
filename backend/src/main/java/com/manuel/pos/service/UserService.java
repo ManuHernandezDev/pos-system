@@ -26,8 +26,11 @@ public class UserService {
         this.passwordEncoder = passwordEncoder;
     }
 
-    public List<User> getAllUsers(){
-        return userRepository.findAll();
+    public List<UserResponseDTO> getAllUsers(){
+        return userRepository.findAll()
+                .stream()
+                .map(UserMapper::toResponse)
+                .toList();
     }
 
     public UserResponseDTO saveUser(UserRequestDTO userRequestDTO){
