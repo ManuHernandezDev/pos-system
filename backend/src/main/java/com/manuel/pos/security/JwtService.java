@@ -23,7 +23,7 @@ public class JwtService {
                 .compact();
     }
 
-    public String stractEmail(String token){
+    public String extractEmail(String token){
         return Jwts.parser()
                 .verifyWith(getKey())
                 .build()

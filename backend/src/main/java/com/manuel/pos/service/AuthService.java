@@ -2,7 +2,6 @@ package com.manuel.pos.service;
 
 import com.manuel.pos.dto.request.AuthRequest;
 import com.manuel.pos.dto.response.AuthResponse;
-import com.manuel.pos.dto.response.UserResponseDTO;
 import com.manuel.pos.entity.User;
 import com.manuel.pos.repository.UserRepository;
 import com.manuel.pos.security.JwtService;
