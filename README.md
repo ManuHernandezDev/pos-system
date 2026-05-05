@@ -151,6 +151,38 @@ Se implementaron pruebas unitarias y de integración para validar el comportamie
 ### En desarrollo
 - Gestión de usuarios implementada
 
+## 🔐 Autenticación y Seguridad
+
+Se implementó autenticación basada en JWT (JSON Web Token) para proteger los endpoints del sistema.
+
+### 🔹 Flujo de autenticación
+
+1. El usuario inicia sesión en `/auth/login`
+2. El backend valida credenciales
+3. Se genera un token JWT
+4. El cliente envía el token en cada petición:
+
+```http
+Authorization: Bearer <token>
+```
+### Endpoints protegidos
+Todos los endpoints excepto /auth/** requieren autenticación.
+
+Ejemplo:
+- GET /users → requiere token
+- POST /users → requiere token
+
+### Comportamiento
+- Sin token → 401 Unauthorized
+- Token inválido → 401 Unauthorized
+- Token válido → acceso permitido
+
+### Seguridad implementada
+- Password encriptado con BCrypt
+- Validación de token en cada request
+- Filtro JWT personalizado
+- Uso de SecurityContextHolder
+
 ## Autor
 
 - Manuel Hernández Soriano
