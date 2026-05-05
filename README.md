@@ -183,6 +183,17 @@ Ejemplo:
 - Filtro JWT personalizado
 - Uso de SecurityContextHolder
 
-## Autor
+## Autorización por roles
 
+El sistema implementa control de acceso basado en roles.
+
+### Roles disponibles
+- ADMIN → acceso completo
+- USER → acceso limitado
+
+### Reglas
+- `/users/**` → solo ADMIN
+- `/auth/**` → público
+
+## Autor
 - Manuel Hernández Soriano
