@@ -195,5 +195,25 @@ El sistema implementa control de acceso basado en roles.
 - `/users/**` → solo ADMIN
 - `/auth/**` → público
 
+## 🗄 Database Configuration
+
+The application uses PostgreSQL as the database.
+
+For production, a cloud database (Supabase) is used.
+
+### Environment Variables
+
+The following environment variables must be configured:
+
+- `SPRING_DATASOURCE_URL`
+- `SPRING_DATASOURCE_USERNAME`
+- `SPRING_DATASOURCE_PASSWORD`
+
+---
+
+### Local Development
+
+For local development, configure your PostgreSQL instance or use Supabase credentials.
+
 ## Autor
 - Manuel Hernández Soriano
