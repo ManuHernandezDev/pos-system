@@ -3,6 +3,7 @@
 ## 📌 Descripción
 Sistema de punto de venta (POS) web que permite gestionar usuarios, inventario y ventas en tiempo real, con control de acceso basado en roles.
 
+Live Demo: https://pos-system-4eyi.onrender.com
 ---
 
 ## 🧠 Arquitectura
@@ -195,15 +196,15 @@ El sistema implementa control de acceso basado en roles.
 - `/users/**` → solo ADMIN
 - `/auth/**` → público
 
-## 🗄 Database Configuration
+## Configuracion de Base de datos
 
-The application uses PostgreSQL as the database.
+La aplicacion usa PostgreSQL como base de datos.
 
-For production, a cloud database (Supabase) is used.
+Para produccion, una base de datos en la nuba (Supabase) es usada.
 
 ### Environment Variables
 
-The following environment variables must be configured:
+Las siguiente vairables de entorno deben ser configuradas:
 
 - `SPRING_DATASOURCE_URL`
 - `SPRING_DATASOURCE_USERNAME`
