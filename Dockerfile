@@ -1,11 +1,7 @@
-# Usar imagen de Java
-FROM openjdk:17-jdk-slim
+FROM eclipse-temurin:17-jdk
 
-# Copiar proyecto
 COPY target/*.jar app.jar
 
-# Exponer puerto
 EXPOSE 8080
 
-# Ejecutar app
 ENTRYPOINT ["java","-jar","/app.jar"]
