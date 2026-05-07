@@ -216,5 +216,20 @@ Las siguiente vairables de entorno deben ser configuradas:
 
 For local development, configure your PostgreSQL instance or use Supabase credentials.
 
+## ⚙️ Environments
+
+The application supports multiple environments:
+
+- **dev** → Local development
+- **prod** → Production (Render + Supabase)
+
+### Running locally
+
+spring.profiles.active=dev
+
+### Production
+
+Uses environment variables for database configuration.
+
 ## Autor
 - Manuel Hernández Soriano
